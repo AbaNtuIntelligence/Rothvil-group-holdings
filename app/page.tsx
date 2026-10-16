@@ -1,4 +1,4 @@
- "use client";
+﻿ "use client";
 
 import { useEffect, useState } from "react";
 import {
@@ -139,10 +139,12 @@ export default function Home() {
               <Zap size={23} strokeWidth={2.8} />
             </span>
             <span className="leading-none">
-              <span className="display block text-[22px] uppercase">Rothvil</span>
-              <span className="block text-[9px] font-bold tracking-[0.38em]">GROUP HOLDINGS</span>
-            </span>
-          </a>
+  <span className="display block text-[22px] uppercase">Rothvil</span>
+  <span className="block text-[9px] font-bold tracking-[0.38em]">
+    GROUP HOLDINGS
+  </span>
+</span>
+</a>
 
           <nav className="hidden items-center gap-8 text-[11px] font-bold uppercase tracking-[0.18em] lg:flex">
             {["About", "Services", "Vision", "References", "Contact"].map((item) => (
@@ -414,7 +416,7 @@ export default function Home() {
             </a>
           </div>
           <p className="mt-14 max-w-2xl text-sm leading-6 opacity-75">
-            Additional company particulars such as registration number, VAT/tax details, physical address and website domain were not visible in the supplied profile and have intentionally not been invented.
+            Additional company particulars such as registration number, VAT/tax details, physical address were not visible in the supplied profile and have intentionally not been invented.
           </p>
         </div>
       </section>
@@ -428,3 +430,5 @@ export default function Home() {
     </main>
   );
 }
+
+
