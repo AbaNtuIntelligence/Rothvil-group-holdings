@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #07111f;
+  --blue: #145a93;
+  --cyan: #39c6e8;
+  --mist: #eef9fc;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+::selection { background: #39c6e8; color: #07111f; }
+
+.display {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.marquee {
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.hero-pan { animation: heroPan 12s ease-in-out infinite alternate; }
+@keyframes heroPan {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.10); }
+}
+
+.fade-up {
+  animation: fadeUp .8s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-line {
+  position: relative;
+  overflow: hidden;
+}
+.reveal-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cyan);
+  transform: translateX(-101%);
+  animation: wipe 1.1s .25s cubic-bezier(.7,0,.2,1) both;
+}
+@keyframes wipe {
+  to { transform: translateX(101%); }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee, .hero-pan, .fade-up, .reveal-line::after { animation: none; }
+}
+
+/* Rothvil 2026 premium motion and interface */
+html { scroll-padding-top: 5rem; }
+body { -webkit-font-smoothing: antialiased; }
+section[id] { scroll-margin-top: 5rem; }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 2px solid #39c6e8; outline-offset: 5px; }
+.slider-control { transition: background-color .3s ease, color .3s ease, transform .3s ease; }
+.slider-control:hover { transform: translateY(-3px); }
+section img { transition: filter .7s ease; }
+@media (max-width: 640px) {
+ .display { overflow-wrap: anywhere; }
+ .hero-pan { animation-duration: 16s; }
+}
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
